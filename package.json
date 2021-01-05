@@ -1,0 +1,31 @@
+{
+  "name": "learn-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.run-loaders.js",
+  "dependencies": {
+    "html-webpack-plugin": "^4.5.1",
+    "webpack-cli": "^4.3.1",
+    "webpack": "^5.11.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devancn/learn-loader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devancn/learn-loader/issues"
+  },
+  "homepage": "https://github.com/Devancn/learn-loader#readme"
+}

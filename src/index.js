@@ -1,1 +1,3 @@
-require('inline-loader1!inline-loader2!./src/title.js')
+let sum = (a, b) => a + b;
+debugger
+console.log(sum(1, 2));
