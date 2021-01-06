@@ -19,5 +19,5 @@ function loader(source, inputSourceMap, data) {
     return `module.exports="${filename}"`;
   }
 }
-
+loader.raw = true;
 module.exports = loader;

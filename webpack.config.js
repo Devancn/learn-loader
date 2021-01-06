@@ -21,10 +21,10 @@ module.exports = {
       {
         test: /\.(jpg|png|gif)$/,
         use: {
-          loader: path.resolve("./loaders/babel-loader.js"),
+          loader: path.resolve("./loaders/url-loader.js"),
           options: {
             name: "[hash:8].[ext]",
-            limit: 1024,
+            limit: 1024 * 20,
           },
         },
         include: path.resolve("src"),
