@@ -4,7 +4,7 @@ const core = require("@babel/core");
  *
  * @param {*} source
  * @param {*} inputSourceMap 输入的sourceMap
- * @param {*} data
+ * @param {*} data 额外的数据,与当前loader pitch中的data共享
  */
 function loader(source, inputSourceMap, data) {
   const options = {
@@ -20,4 +20,7 @@ function loader(source, inputSourceMap, data) {
    */
   return this.callback(null, code, map, ast);
 }
+loader.pitch = function(remainingRequest, previousRequest,data) {
+  data.name = 'babel-loader-pitch'
+} 
 module.exports = loader;

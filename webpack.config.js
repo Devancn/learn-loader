@@ -13,9 +13,20 @@ module.exports = {
   */
   module: {
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   use: [path.resolve("./loaders/babel-loader.js")],
+      //   include: path.resolve("src"),
+      // },
       {
-        test: /\.js$/,
-        use: [path.resolve("./loaders/babel-loader.js")],
+        test: /\.(jpg|png|gif)$/,
+        use: {
+          loader: path.resolve("./loaders/babel-loader.js"),
+          options: {
+            name: "[hash:8].[ext]",
+            limit: 1024,
+          },
+        },
         include: path.resolve("src"),
       },
     ],
