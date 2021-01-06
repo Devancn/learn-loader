@@ -29,6 +29,11 @@ module.exports = {
         },
         include: path.resolve("src"),
       },
+      {
+        test: /\.less$/,
+        use: [path.resolve("./loaders/style-loader.js"), path.resolve("./loaders/less-loader.js")],
+        include: path.resolve("src"),
+      },
     ],
   },
   plugins: [new htmlWebpackPlugin()],
