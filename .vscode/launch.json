@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}\\loaders\\url-loader.js"
+      "program": "${workspaceFolder}\\1.run-loaders.js"
     }
   ]
 }

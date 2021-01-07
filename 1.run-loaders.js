@@ -1,12 +1,12 @@
 let path = require("path");
 let fs = require("fs");
-let { runLoaders } = require("loader-runner");
-const loader = require("./loaders/inline-loader1");
+let { runLoaders } = require("./loader-runner");
+// const loader = require("./loaders/inline-loader1");
 let filePath = path.resolve(__dirname, "src", "index.js");
 let request = `inline-loader1!inline-loader2!${filePath}`;
 let parts = request.replace(/^-?!+/, "").split("!");
 let resource = parts.pop();
-let resolveLoader = (loader) => path.resolve(__dirname, "loaders", loader);
+let resolveLoader = (loader) => path.resolve(__dirname, "loaders2", loader);
 let inlineLoaders = parts.map(resolveLoader);
 let rules = [
   {
@@ -56,6 +56,7 @@ if (request.startsWith("!!")) {
 } else {
   loaders = [...postLoaders, ...inlineLoaders, ...normalLoaders, ...preLoaders];
 }
+console.log(loaders);
 
 /**
  * 1. 读取要价在的资源
@@ -64,7 +65,7 @@ if (request.startsWith("!!")) {
 runLoaders(
   {
     // 要价在和转换的资源
-    resource: "",
+    resource,
     // loader的绝对路径数组
     loaders,
     // 额外的loader上下文对象
@@ -73,7 +74,7 @@ runLoaders(
     readResource: fs.readFile.bind(fs),
   },
   function (err, result) {
-    // console.log(err);
+    console.log(err);
     console.log(result);
   }
 );

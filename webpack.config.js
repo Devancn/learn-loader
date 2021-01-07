@@ -13,11 +13,11 @@ module.exports = {
   */
   module: {
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   use: [path.resolve("./loaders/babel-loader.js")],
-      //   include: path.resolve("src"),
-      // },
+      {
+        test: /\.js$/,
+        use: [path.resolve(__dirname, "./loaders2/inline-loader1.js")],
+        include: path.resolve("src"),
+      },
       {
         test: /\.(jpg|png|gif)$/,
         use: {
@@ -31,7 +31,10 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [path.resolve("./loaders/style-loader.js"), path.resolve("./loaders/less-loader.js")],
+        use: [
+          path.resolve("./loaders/style-loader.js"),
+          path.resolve("./loaders/less-loader.js"),
+        ],
         include: path.resolve("src"),
       },
     ],
