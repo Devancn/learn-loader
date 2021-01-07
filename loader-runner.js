@@ -122,8 +122,13 @@ function iteratePitchingLoaders(processOptions, loaderContext, finalCallback) {
       loaderContext.previousRequest,
       loaderContext.data,
     ],
+    /**
+     * 
+     * @param {*} err 
+     * @param  {...any} values 表示loader的pitch函数传递的结果
+     */
     (err, ...values) => {
-      // 表示pitch已经执行完成该执行norm loader
+      // 如果pitch函数有结果就直接执行normal loader 并把结果传递给normal loader函数
       if (values.length > 0 && !!values[0]) {
         loaderContext.loaderIndex--;
         iterateNormalLoaders(processOptions, loaderContext, values, finalCallback);
